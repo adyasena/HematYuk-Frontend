@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 // pages and assets
 import App from './App.jsx';
-import Home from './pages/Home.jsx';
-import Promo from './pages/Promo.jsx';
+import Homepage from './pages/Homepage.jsx';
+import Promo from './pages/Promopage.jsx';
 import './index.css';
 
 // router
@@ -18,7 +18,7 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route exact path='/' element={<App />}>
-      <Route path='/' element={<Home />} />
+      <Route path='/' element={<Homepage />} />
       <Route path='/promo' element={<Promo />} />
     </Route>
   )
