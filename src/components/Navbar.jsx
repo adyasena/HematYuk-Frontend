@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ReactLogo } from "../assets";
 
 const Navbar = () => {
   const [scroll, setScroll] = useState(false);
+  const navigate = useNavigate();
+
   const changeClass = () => {
     if (window.scrollY >= 180) {
       setScroll(true)
@@ -10,6 +13,10 @@ const Navbar = () => {
     else {
       setScroll(false)
     }
+  };
+
+  const toRegister = () => {
+    navigate('/register');
   };
 
   window.addEventListener("scroll", changeClass);
@@ -26,7 +33,8 @@ const Navbar = () => {
           <p className="transform">HematYuk</p> 
         </a>
         <button className={"text-base border-2 font-normal py-2 lg:px-6 px-4 rounded-md transform duration-300 ease "
-          + (scroll ? "bg-white text-blue-light border-white hover:bg-opacity-0 hover:text-white" : "text-white border-green-primary hover:bg-green-primary")}>
+          + (scroll ? "bg-white text-blue-light border-white hover:bg-opacity-0 hover:text-white" : "text-white border-green-primary hover:bg-green-primary")}
+          onClick={toRegister}>
             Masuk / Daftar
         </button> 
       </div>
