@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import Homepage from './pages/Homepage.jsx';
 import Registerpage from './pages/Registerpage.jsx';
+import Loginpage from "./pages/Loginpage.jsx";
 import Promopage from './pages/Promopage.jsx';
 import './index.css';
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
     <Route exact path='/' element={<App />}>
       <Route path='/' element={<Homepage />} />
       <Route path='/register' element={<Registerpage />} />
+      <Route path='/login' element={<Loginpage />} />
       <Route path='/promo' element={<Promopage />} />
     </Route>
   )

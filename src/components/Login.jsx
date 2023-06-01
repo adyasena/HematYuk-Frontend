@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { BgHome } from "../assets";
 
-const Register = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const toHome = () => {
     navigate('/');
   };
 
-  const toLogin = () => {
-    navigate('/login');
+  const toRegister = () => {
+    navigate('/register');
   };
 
   return (
@@ -27,35 +27,27 @@ const Register = () => {
       </div>
       <div className="flex flex-col w-1/2 text-center justify-center items-center text-black gap-5">
         <div className="font-semibold text-2xl mb-4">
-          Daftarkan akunmu sekarang!
+          Selamat datang kembali!
         </div>
         <div className="flex flex-col text-start w-3/5 font-roboto gap-1">
-          Username
-          <input type="text" placeholder="Masukkan username" className="h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark"/>
-        </div>
-        <div className="flex flex-col text-start w-3/5 font-roboto gap-1">
-          Email
-          <input type="email" placeholder="Masukkan email" className="h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark"/>
+          Username/Email
+          <input type="text" placeholder="Masukkan username atau email anda" className="h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark"/>
         </div>
         <div className="flex flex-col text-start w-3/5 font-roboto gap-1">
           Password
-          <input type="password" placeholder="Masukkan password" className="h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark"/>
-        </div>
-        <div className="flex flex-col text-start w-3/5 font-roboto gap-1">
-          Konfirmasi Password
-          <input type="password" placeholder="Konfirmasi password anda" className="h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark"/>
+          <input type="password" placeholder="Masukkan password anda" className="h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark"/>
         </div>
         <button className="font-normal py-2 px-6 mt-4 w-32 text-white rounded-md transform duration-300 ease bg-green-primary hover:bg-green-dark" 
           onClick={toHome}>
-            Daftar
+            Masuk
         </button>
         <div className="flex flex-row text-sm gap-1">
-          Sudah punya akun?
-          <button onClick={toLogin} className="text-green-primary hover:text-green-dark">Masuk sekarang</button>
+          Belum punya akun?
+          <button onClick={toRegister} className="text-green-primary hover:text-green-dark">Daftar sekarang</button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Register;
+export default Login;
