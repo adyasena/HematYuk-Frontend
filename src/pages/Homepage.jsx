@@ -1,19 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Home from '../components/home';
+import Hero from '../components/Hero';
 import Promo from '../components/Promo';
 
 export default function Homepage() {
-  const navigate = useNavigate();
-
-  const toPromo = () => {
-    navigate('/promo');
-  };
-
   return (
     <>
       <Navbar />
-      <Home />
+      <Hero />
       <Promo />
     </>
   );

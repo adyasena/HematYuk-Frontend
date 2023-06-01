@@ -1,14 +1,12 @@
-import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { BgHome } from "../assets";
 
-const Home = () => {
-  const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
-  };
+const Hero = () => {
+  const navigate = useNavigate();
 
+  const toPromo = () => {
+    navigate('/promo');
+  };
   return (
     <div className="w-full h-screen bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${BgHome})`}}>
       <div className="w-full h-screen bg-black bg-opacity-60">
@@ -22,8 +20,9 @@ const Home = () => {
           </div>
           
           <div className="lg:mt-16">
-            <button className="bg-blue-light text-white font-normal py-2 px-6 rounded-md transform duration-300 ease bg-green-primary hover:bg-white hover:text-black" onClick={scrollToBottom}>
-              Telusuri Promo
+            <button className="bg-blue-light text-white font-normal py-2 px-6 rounded-md transform duration-300 ease bg-green-primary hover:bg-white hover:text-black" 
+              onClick={toPromo}>
+                Telusuri Promo
             </button>
           </div>
         </div>
@@ -32,4 +31,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Hero;
