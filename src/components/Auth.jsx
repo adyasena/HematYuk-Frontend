@@ -10,6 +10,7 @@ export default function Auth() {
 
   const [isLoginUser, setIsLoginUser] = useState(false);
   const [isLoginAdmin, setIsLoginAdmin] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -54,6 +55,16 @@ export default function Auth() {
       </button>
     );
   }
+
+  const changeClass = () => {
+    if (window.scrollY >= 180) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+
+  window.addEventListener('scroll', changeClass);
 
   return (
     <button

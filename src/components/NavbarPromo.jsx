@@ -1,4 +1,4 @@
-import { ReactLogo } from '../assets';
+import { LogoWhite } from '../assets';
 import Auth from './Auth';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
           className='flex flex-row items-center justify-start h-full text-white'
         >
           <img
-            src={ReactLogo}
+            src={LogoWhite}
             alt='logo hematyuk'
             className={'m-2 transform duration-300 ease w-8'}
           />

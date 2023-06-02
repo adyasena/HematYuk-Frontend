@@ -62,15 +62,14 @@ const Promo = () => {
               Lihat semua
             </button>
           </div>
-          <div className='grid grid-cols-4 justify-center items-center gap-6'>
+          <div className="grid grid-cols-4 justify-center items-center gap-6">
             {vouchers.slice(0, 4)?.map((item) => (
-              <div
-                key={item._id}
-                className='w-full h-28 justify-self-center flex text-white'
-              >
-                <div className='w-2/3 h-full rounded-s-md bg-green-dark flex flex-col items-center justify-center font-poppins gap-1'>
-                  <div className='font-bold text-xl'>{item.companyName}</div>
-                  <div className='text-sm'>
+              <div key={item._id} className="w-full h-28 justify-self-center flex text-white">
+                <div className="w-2/3 h-full rounded-s-md bg-green-dark flex flex-col items-center justify-center font-poppins gap-1">
+                  <div className="font-bold text-xl">
+                    {item.companyName}
+                  </div>
+                  <div className="text-sm">
                     Min. transaksi {kFormatter(item.minTransaction)}
                   </div>
                   <div className='relative z-0 w-5/6 text-black'>
@@ -90,16 +89,11 @@ const Promo = () => {
                     </button>
                   </div>
                 </div>
-                <button
-                  className='w-1/3 h-full rounded-e-md bg-green-primary hover:bg-green-dark text-white flex flex-col items-center justify-center font-poppins gap-1 transform duration-300 ease'
-                  onClick={() => {
-                    setId(item);
-                    setShowModalVoucher(true);
-                  }}
-                >
-                  <div className='font-bold text-center'>
-                    <div className='text-lg'>Diskon</div>
-                    <div className='text-3xl'>{kFormatter(item.value)}</div>
+                <button className="w-[36%] h-full rounded-e-md bg-green-primary hover:bg-green-dark text-white flex flex-col items-center justify-center font-poppins gap-1 transform duration-300 ease"
+                  onClick={() => {setId(item); setShowModalVoucher(true)}}>
+                  <div className="font-bold text-center">
+                    <div className="text-lg">Diskon</div>
+                    <div className="text-3xl">{kFormatter(item.value)}</div>
                   </div>
                 </button>
               </div>
