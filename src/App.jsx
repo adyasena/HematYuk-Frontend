@@ -1,16 +1,17 @@
-// components
-
+import { ChakraProvider } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='bg-white'>
-      <div className=''>
+    <ChakraProvider>
+      <div className='bg-white'>
         <div className=''>
-          <Outlet />
+          <div className=''>
+            <Outlet />
+          </div>
         </div>
       </div>
-    </div>
+    </ChakraProvider>
   );
 }
 
