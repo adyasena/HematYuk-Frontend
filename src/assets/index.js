@@ -1,6 +1,7 @@
-import BgHome from "./bghome.jpg"
-import Close from "./close.svg"
-import ReactLogo from "./react.svg"
-import User from "./user.svg"
+import BgHome from './bghome.jpg';
+import BgPromo from './bgpromo.png';
+import Close from './close.svg';
+import ReactLogo from './react.svg';
+import User from './user.svg';
 
-export { BgHome, Close, ReactLogo, User }
+export { BgHome, BgPromo, Close, ReactLogo, User };
