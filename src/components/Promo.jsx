@@ -1,19 +1,47 @@
+import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFetch } from "../helpers/useFetch";
+import ModalVoucher from "./ModalVoucher";
+
 const Promo = () => {
-  const vocerDummy = [
-    { id: 1, disc: "50%", min: "20K" },
-    { id: 2, disc: "20K", min: "30K" },
-    { id: 3, disc: "69%", min: "2K" },
-    { id: 4, disc: "72K", min: "100K" },
-    { id: 5, disc: "8K", min: "90K" },
-    { id: 5, disc: "1%", min: "500K" },
-    { id: 1, disc: "50%", min: "20K" },
-    { id: 2, disc: "20K", min: "30K" },
-    { id: 3, disc: "69%", min: "2K" },
-    { id: 4, disc: "72K", min: "100K" },
-    { id: 5, disc: "8K", min: "90K" },
-    { id: 5, disc: "1%", min: "500K" },
-    
-  ];
+  const [id, setId] = useState();
+  const [showModalVoucher, setShowModalVoucher] = useState(false);
+  const navigate = useNavigate();
+  
+  const handleOnClose = () => {
+    setShowModalVoucher(false);
+  };
+  const toPromo = () => {
+    navigate("/promo");
+  };
+
+  const {data: vouchersData} = useFetch("/vouchers");
+
+  const [vouchers, setVouchers] = useState([]);
+  useMemo(() => {
+    if (!vouchersData?.data?.vouchers) return;
+    setVouchers(vouchersData.data.vouchers);
+  }, [vouchersData]);
+
+  function kFormatter(num) {
+    return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+  }
+
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = (code) => {
+    navigator.clipboard.writeText(code).then(
+      () => {
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 2000);
+        console.log(code)
+      },
+      (err) => {
+        console.log("failed to copy", err.mesage);
+      }
+  )};
 
   return (
     <div className="bg-white">
@@ -23,32 +51,44 @@ const Promo = () => {
             <div className="text-black text-2xl font-poppins font-semibold py-4">
               Promo Populer
             </div>
-            <button className="h-8 text-green-primary hover:text-green-dark hover:underline">
-              Lihat semua
+            <button className="h-8 text-green-primary hover:text-green-dark hover:underline transform duration-300 ease"
+              onClick={toPromo}>
+                Lihat semua
             </button>
           </div>
-          <div className="grid grid-cols-4 justify-center items-center gap-8">
-            {vocerDummy.map(item => (
-              <div key={item.id} className="w-full h-28 justify-self-center flex">
-                <div className="w-2/3 h-full rounded-s-md bg-green-light flex flex-col items-center justify-center font-poppins">
-                  <div className="font-bold text-2xl">
-                    Diskon {item.disc}
+          <div className="grid grid-cols-4 justify-center items-center gap-6">
+            {vouchers.map(item => (
+              <div key={item._id} className="w-full h-28 justify-self-center flex text-white">
+                <div className="w-2/3 h-full rounded-s-md bg-green-dark flex flex-col items-center justify-center font-poppins gap-1">
+                  <div className="font-bold text-xl">
+                    {item.companyName}
                   </div>
                   <div className="text-sm">
-                    Min. pembelian {item.min}
+                    Min. transaksi {kFormatter(item.minTransaction)}
+                  </div>
+                  <div className="relative z-0 w-5/6 text-black">
+                    <button className="bg-green-light w-full h-6 rounded-md text-center text-sm">
+                        Kode berhasil disalin
+                    </button>
+                    <button className={"bg-white hover:bg-green-primary hover:text-white w-full h-6 rounded-md text-center transform duration-300 ease absolute inset-y-0 left-0 z-10 " + (copied ? "focus:opacity-0" : "opacity-100")}
+                      onClick={() => {copyToClipboard(item.voucherCode)}}>
+                        {item.voucherCode}
+                    </button>
                   </div>
                 </div>
-                <div className="w-1/3 h-full rounded-e-md bg-green-primary flex items-center justify-center font-poppins">
-                  <button className="w-2/3 h-2/3 bg-white rounded-md hover:bg-grey transform duration-300 ease"
-                    onClick={() => {navigator.clipboard.writeText(item.min)}}>
-                    Salin Kode
-                  </button>
-                </div>
+                <button className="w-1/3 h-full rounded-e-md bg-green-primary hover:bg-green-dark text-white flex flex-col items-center justify-center font-poppins gap-1 transform duration-300 ease"
+                  onClick={() => {setId(item); setShowModalVoucher(true)}}>
+                  <div className="font-bold text-center">
+                    <div className="text-lg">Diskon</div>
+                    <div className="text-3xl">{kFormatter(item.value)}</div>
+                  </div>
+                </button>
               </div>
             ))}
           </div>
         </div>
       </div>
+      <ModalVoucher onClose={handleOnClose} visible={showModalVoucher} voucher={id}/>
     </div>
   )
 }
