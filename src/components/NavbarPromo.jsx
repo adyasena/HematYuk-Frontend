@@ -1,13 +1,7 @@
-import { useNavigate } from 'react-router-dom';
 import { ReactLogo } from '../assets';
+import Auth from './Auth';
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
-  const toRegister = () => {
-    navigate('/register');
-  };
-
   return (
     <div className='navbar'>
       <div className={'navbar bg-green-primary opacity-100'}></div>
@@ -19,7 +13,7 @@ const Navbar = () => {
       >
         <a
           href='/'
-          className='flex flex-row justify-start items-center h-full text-white'
+          className='flex flex-row items-center justify-start h-full text-white'
         >
           <img
             src={ReactLogo}
@@ -28,18 +22,7 @@ const Navbar = () => {
           />
           <p className='transform'>HematYuk</p>
         </a>
-        {/* <button className="text-base transform duration-300 ease"
-          onClick={toRegister}>
-            <img src={User} className="w-10 outline-yellow-primary" />
-        </button> */}
-        <button
-          className={
-            'text-base border-2 font-normal py-2 lg:px-6 px-4 rounded-md transform duration-300 ease bg-white text-blue-light border-white hover:bg-opacity-0 hover:text-white'
-          }
-          onClick={toRegister}
-        >
-          Masuk / Daftar
-        </button>
+        <Auth />
       </div>
     </div>
   );
