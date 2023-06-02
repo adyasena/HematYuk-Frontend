@@ -49,9 +49,12 @@ const Register = () => {
           onClick={toHome}>
             Daftar
         </button>
-        <div className="flex flex-row text-sm gap-1">
+        <div className="flex flex-row text-sm gap-1 font-roboto">
           Sudah punya akun?
-          <button onClick={toLogin} className="text-green-primary hover:text-green-dark">Masuk sekarang</button>
+          <button className="text-green-primary hover:text-green-dark hover:underline"
+            onClick={toLogin}>
+              Masuk sekarang
+          </button>
         </div>
       </div>
     </div>

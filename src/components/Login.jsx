@@ -41,9 +41,12 @@ const Login = () => {
           onClick={toHome}>
             Masuk
         </button>
-        <div className="flex flex-row text-sm gap-1">
+        <div className="flex flex-row text-sm gap-1 font-roboto">
           Belum punya akun?
-          <button onClick={toRegister} className="text-green-primary hover:text-green-dark">Daftar sekarang</button>
+          <button className="text-green-primary hover:text-green-dark hover:underline"
+            onClick={toRegister}>
+              Daftar sekarang
+          </button>
         </div>
       </div>
     </div>
