@@ -13,8 +13,9 @@ export default {
       'green-primary': '#609966',
       'green-light': '#EDF1D6',
       'green-dark': '#40513B',
-      'blue-primary': '#51A5BA',
       'orange-primary': '#FE8402',
+      'blue-light': '#0093DD',
+      'red-primary': '#D91C1C',
       'black': '#151515',
       'grey': '#CCCCCC',
       'white': '#F9FAFB'

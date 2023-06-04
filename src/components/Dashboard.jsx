@@ -103,11 +103,11 @@ const Dashboard = () => {
       },
       {
         Header: "Action",
-        accessor: agenda => {
-          let id =(agenda._id);
+        accessor: vouchers => {
+          let id =(vouchers._id);
           return ( 
             <div className="flex justify-center gap-1">
-              <button onClick={() => {setId(agenda); setShowModalEdit(true);}} className="rounded-md p-1 bg-blue-light"><img src={Edit} className="w-4"/></button>
+              <button onClick={() => {setId(vouchers); setShowModalEdit(true);}} className="rounded-md p-1 bg-blue-light"><img src={Edit} className="w-4"/></button>
               <button onClick={() => {setId(id); setShowModalDelete(true)}} className="rounded-md p-1 bg-red-primary"><img src={Delete} className="w-4"/></button>
             </div>
           )

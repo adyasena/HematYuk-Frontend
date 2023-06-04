@@ -56,11 +56,26 @@ export default function Auth() {
     navigate('/register');
   };
 
-  if (isLoginUser || isLoginAdmin) {
+  if (isLoginUser) {
     return (
       <div className="flex flex-row items-center gap-5 text-base text-white">
         <div className="">
           Poin Anda: {userPoints}
+        </div>
+        <button
+          className='duration-300 transform ease'
+          onClick={onLogout}
+        >
+          <img src={User} className='w-10 outline-yellow-primary' />
+        </button>
+      </div>
+    );
+  }
+  else if (isLoginAdmin) {
+    return (
+      <div className="flex flex-row items-center gap-5 text-base text-white">
+        <div className="">
+          Admin
         </div>
         <button
           className='duration-300 transform ease'
