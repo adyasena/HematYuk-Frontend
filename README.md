@@ -20,5 +20,5 @@ Muhammad Arif Hidayat (20/463609/TK/51601)</p>
 ## How to run ?
 ```
 npm install
-npm start
+npm run dev
 ```
