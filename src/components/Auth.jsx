@@ -11,14 +11,18 @@ export default function Auth() {
 
   const [isLoginUser, setIsLoginUser] = useState(false);
   const [isLoginAdmin, setIsLoginAdmin] = useState(false);
+  const [userPoints, setUserPoints] = useState(0);
   const [scroll, setScroll] = useState(false);
-  const { data: usersData } = useFetch('/users');
+
+  const token = localStorage.getItem('accessToken');
+  const decodedToken = token ? jwtDecode(token) : null;
+  const userId = decodedToken?.id;
+
+  const { data: userData } = useFetch(`/users/${userId}`);
 
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    console.log(token);
-    if (token) {
-      const payload = jwtDecode(token);
+    if (token && decodedToken && userId) {
+      const payload = decodedToken;
       if (payload.isAdmin === false) {
         setIsLoginUser(true);
       } else if (payload.isAdmin === true) {
@@ -27,7 +31,12 @@ export default function Auth() {
         // nothing to do
       }
     }
-  }, []);
+
+    if (userData?.data?.user) {
+      const points = userData.data.user.point;
+      setUserPoints(points);
+    }
+  }, [token, decodedToken, userId, userData]);
 
   const onLogout = () => {
     localStorage.removeItem('accessToken');
@@ -49,9 +58,9 @@ export default function Auth() {
 
   if (isLoginUser || isLoginAdmin) {
     return (
-      <div className="flex flex-row gap-3 text-base items-center text-white">
+      <div className="flex flex-row items-center gap-3 text-base text-white">
         <div className="">
-          Poin Anda:
+          Poin Anda: {userPoints}
         </div>
         <button
           className='duration-300 transform ease'
