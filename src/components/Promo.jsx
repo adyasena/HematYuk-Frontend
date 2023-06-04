@@ -49,7 +49,7 @@ const Promo = () => {
 
   return (
     <div id='latest'>
-      <div className='container mx-auto min-h-screen w-screen pt-20 pb-6 lg:px-8 flex flex-col items-center relative'>
+      <div className='container mx-auto min-h-[80vh] w-screen pt-20 pb-6 lg:px-8 flex flex-col items-center relative'>
         <div className='rounded-xl w-full h-full mb-28'>
           <div className='flex flex-row justify-between items-center'>
             <div className='text-black text-2xl font-poppins font-semibold py-4'>

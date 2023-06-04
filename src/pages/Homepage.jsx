@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Promo from '../components/Promo';
+import Footer from "../components/Footer";
 
 export default function Homepage() {
   return (
@@ -8,6 +9,7 @@ export default function Homepage() {
       <Navbar />
       <Hero />
       <Promo />
+      <Footer />
     </>
   );
 }
