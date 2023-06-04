@@ -48,7 +48,7 @@ export default function SearchPromo() {
   };
 
   return (
-    <>
+    <div className="w-full min-h-screen pb-6 items-center">
       <div
         className='mx-auto pt-10 pb-6 my-12 w-full h-full bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: `url(${BgPromo})` }}
@@ -57,7 +57,7 @@ export default function SearchPromo() {
           Cari Promo Terbaik Untuk Kamu!
         </h1>
       </div>
-      <div className='my-12 md:px-[200px]'>
+      <div className='my-12 container mx-auto px-5'>
         <div className='relative flex justify-between mx-[20px] my-[20px]'>
           <div className='absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
             <svg
@@ -133,6 +133,6 @@ export default function SearchPromo() {
           voucher={id}
         />
       </div>
-    </>
+    </div>
   );
 }
