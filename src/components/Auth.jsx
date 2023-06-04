@@ -3,6 +3,7 @@ import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react';
 import { User } from '../assets';
+import { useFetch } from '../helpers/useFetch';
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ export default function Auth() {
   const [isLoginUser, setIsLoginUser] = useState(false);
   const [isLoginAdmin, setIsLoginAdmin] = useState(false);
   const [scroll, setScroll] = useState(false);
+  const { data: usersData } = useFetch('/users');
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -47,12 +49,17 @@ export default function Auth() {
 
   if (isLoginUser || isLoginAdmin) {
     return (
-      <button
-        className='text-base duration-300 transform ease'
-        onClick={onLogout}
-      >
-        <img src={User} className='w-10 outline-yellow-primary' />
-      </button>
+      <div className="flex flex-row gap-3 text-base items-center text-white">
+        <div className="">
+          Poin Anda:
+        </div>
+        <button
+          className='duration-300 transform ease'
+          onClick={onLogout}
+        >
+          <img src={User} className='w-10 outline-yellow-primary' />
+        </button>
+      </div>
     );
   }
 

@@ -33,7 +33,7 @@ const Login = () => {
       localStorage.setItem('accessToken', res.data.data.accessToken);
 
       toast({
-        title: 'Login Success',
+        title: 'Berhasil Masuk',
         status: 'success',
         isClosable: true,
         position: 'top',
@@ -44,7 +44,7 @@ const Login = () => {
     } catch (error) {
       if (error.response.status === 401) {
         toast({
-          title: 'Wrong email or password',
+          title: 'Email atau Password Salah',
           status: 'error',
           isClosable: true,
           position: 'top',

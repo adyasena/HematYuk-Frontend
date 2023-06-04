@@ -10,6 +10,7 @@ const Register = () => {
 
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
+  const [phonenumber, setPhonenumber] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -18,12 +19,13 @@ const Register = () => {
       const res = await fetcher.post('auth/signup', {
         username: username,
         email: email,
+        phonenumber: phonenumber,
         password: password,
       });
       if (!res.status) throw new Error(res.error);
 
       toast({
-        title: 'Register Success',
+        title: 'Berhasil Mendaftar Akun',
         status: 'success',
         isClosable: true,
         position: 'top',
@@ -33,7 +35,7 @@ const Register = () => {
     } catch (error) {
       if (error?.response?.status === 409) {
         toast({
-          title: 'Another user with that email already registered.',
+          title: 'Email Telah Terdaftar',
           status: 'error',
           isClosable: true,
           position: 'top',
@@ -67,7 +69,7 @@ const Register = () => {
           </button>
         </div>
       </div>
-      <div className='flex flex-col items-center justify-center w-1/2 gap-5 text-center text-black'>
+      <div className='flex flex-col items-center justify-center w-1/2 gap-3 text-center text-black'>
         <div className='mb-4 text-2xl font-semibold'>
           Daftarkan akunmu sekarang!
         </div>
@@ -90,6 +92,17 @@ const Register = () => {
             className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+        </div>
+        <div className='flex flex-col w-3/5 gap-1 text-start font-roboto'>
+          Nomor Handphone
+          <input
+            type='number'
+            placeholder='Masukkan nomor handphone'
+            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            value={phonenumber}
+            onChange={(event) => setPhonenumber(event.target.value)}
             required
           />
         </div>
