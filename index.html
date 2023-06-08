@@ -10,14 +10,5 @@
     <noscript>Anda perlu mengaktifkan JavaScript untuk menjalankan laman ini.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      (() => {
-        const redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
-        }
-      })();
-    </script>
   </body>
 </html>
