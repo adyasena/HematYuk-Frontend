@@ -1,11 +1,13 @@
 describe('User view voucher test', () => {
   let user;
   let password;
+  let voucherCode
 
   beforeEach(() => {
     // user dan password untuk user biasa
     user = 'useriai'
     password = 'useriai'
+    voucherCode = 'MAKANYUK70' //ganti sesuai kode voucher yang ingin di testing
 
     cy.visit('https://hemat-yuk.vercel.app/login')
     cy.get('.input-email').type(user + '@gmail.com')
@@ -31,7 +33,7 @@ describe('User view voucher test', () => {
 
   // test user dapat menyalin kode voucher 
   it('should show success copy voucher code', () => {
-    cy.contains('button', 'MAKANYUK70').click();
+    cy.contains('button', voucherCode).click();
 
     // untuk memverifikasi test user dapat menyalin kode voucher   berhasil, 
     // dengan verifikasi : terdapat teks ("Kode berhasil disalin" )
