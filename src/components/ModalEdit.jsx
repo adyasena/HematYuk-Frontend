@@ -61,41 +61,41 @@ const ModalEdit = ({ visible, onClose, row, setRefreshSignal }) => {
             <div className="flex flex-col items-center gap-2 w-full">
               <div className="flex flex-col justify-start w-full gap-1">
                 <label className="text-sm">Promo</label>
-                <input ref={nameRef} name="name" defaultValue={row.name} type="text" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                <input ref={nameRef} name="name" defaultValue={row.name} type="text" className="in-name py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
               </div>
               <div className="flex flex-row w-full justify-between gap-5">
                 <div className="flex flex-col justify-start w-1/2 gap-1">
                   <label className="text-sm">Aplikasi</label>
-                  <input ref={companyNameRef} name="companyName" defaultValue={row.companyName} type="text" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                  <input ref={companyNameRef} name="companyName" defaultValue={row.companyName} type="text" className="in-company py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
                 </div>
                 <div className="flex flex-col justify-start w-1/2 gap-1">
                   <label className="text-sm">Tipe</label>
-                  <input ref={typeRef} name="type" defaultValue={row.type} type="text" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                  <input ref={typeRef} name="type" defaultValue={row.type} type="text" className="in-type py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
                 </div>
               </div>
               <div className="flex flex-row w-full justify-between gap-5">
                 <div className="flex flex-col justify-start w-1/2 gap-1">
                   <label className="text-sm">Nilai</label>
-                  <input ref={valueRef} name="value" defaultValue={row.value} type="number" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                  <input ref={valueRef} name="value" defaultValue={row.value} type="number" className="in-value py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
                 </div>
                 <div className="flex flex-col justify-start w-1/2 gap-1">
                   <label className="text-sm">Minimum Pembelian</label>
-                  <input ref={minTransactionRef} name="minTransaction" defaultValue={row.minTransaction} type="number" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                  <input ref={minTransactionRef} name="minTransaction" defaultValue={row.minTransaction} type="number" className="in-minimal py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
                 </div>
               </div>
               <div className="flex flex-row w-full justify-between gap-5">
                 <div className="flex flex-col justify-start w-1/2 gap-1">
                   <label className="text-sm">Minimum Poin</label>
-                  <input ref={priceRef} name="price" defaultValue={row.price} type="number" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                  <input ref={priceRef} name="price" defaultValue={row.price} type="number" className="in-price py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
                 </div>
                 <div className="flex flex-col justify-start w-1/2 gap-1">
                   <label className="text-sm">Jumlah</label>
-                  <input ref={quantityRef} name="quantity" defaultValue={row.quantity} type="number" className="py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                  <input ref={quantityRef} name="quantity" defaultValue={row.quantity} type="number" className="in-quantity py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
                 </div>
               </div>
               <div className="flex flex-col justify-start w-full gap-1">
                 <label className="text-sm">Kode Voucher</label>
-                <input ref={voucherCodeRef} name="voucherCode" defaultValue={row.voucherCode} type="text" className="uppercase py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
+                <input ref={voucherCodeRef} name="voucherCode" defaultValue={row.voucherCode} type="text" className="in-code uppercase py-1 px-2 rounded-md border-black border bg-white focus:outline-green-primary" />
               </div>
             </div>
             <div className="flex flex-row items-center justify-end gap-2">
@@ -106,7 +106,7 @@ const ModalEdit = ({ visible, onClose, row, setRefreshSignal }) => {
                   Batal
               </button>
               <button
-                className={"py-2 px-4 rounded-md text-white ease transition-all duration-300 " + (isLoading ? "cursor-wait bg-grey" : "hover:bg-green-dark bg-green-primary")}
+                className={"btn-edit py-2 px-4 rounded-md text-white ease transition-all duration-300 " + (isLoading ? "cursor-wait bg-grey" : "hover:bg-green-dark bg-green-primary")}
                 type="submit"
                 disabled={isLoading}
                 onClick={editVoucherHandler}>

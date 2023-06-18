@@ -78,7 +78,7 @@ const Register = () => {
           <input
             type='text'
             placeholder='Masukkan username'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-username h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             required
@@ -89,7 +89,7 @@ const Register = () => {
           <input
             type='email'
             placeholder='Masukkan email'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-email h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
@@ -100,7 +100,7 @@ const Register = () => {
           <input
             type='number'
             placeholder='Masukkan nomor handphone'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-phone h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={phonenumber}
             onChange={(event) => setPhonenumber(event.target.value)}
             required
@@ -111,7 +111,7 @@ const Register = () => {
           <input
             type='password'
             placeholder='Masukkan password'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-password h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
@@ -122,14 +122,14 @@ const Register = () => {
           <input
             type='password'
             placeholder='Konfirmasi password anda'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-conf-pass h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
             required
           />
         </div>
         <button
-          className='w-32 px-6 py-2 mt-4 font-normal text-white duration-300 transform rounded-md ease bg-green-primary hover:bg-green-dark'
+          className='btn-register w-32 px-6 py-2 mt-4 font-normal text-white duration-300 transform rounded-md ease bg-green-primary hover:bg-green-dark'
           onClick={() => {
             if (
               username === '' ||

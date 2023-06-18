@@ -7,7 +7,7 @@ import ModalInput from "./ModalInput";
 import { ChevronLeft, ChevronRight, ChevronDoubleLeft, ChevronDoubleRight } from "../assets";
 
 // eslint-disable-next-line react/prop-types
-export default function TableVoucher({ columns, data, setRefreshSignal, setShowToast }) {
+export default function   ({ columns, data, setRefreshSignal, setShowToast }) {
   let currentMonth = Moment(new Date().toLocaleDateString()).format("MM");
   let currentYear = Moment(new Date().toLocaleDateString()).format("YYYY");
 
@@ -63,7 +63,7 @@ export default function TableVoucher({ columns, data, setRefreshSignal, setShowT
             onChange={(e) => setGlobalFilter(e.target.value)}
           />
         </div>
-        <button className="text-base py-1 px-3 mb-3 rounded-md hover:bg-green-dark bg-green-primary text-white ease transition-all duration-300"
+        <button className="btn-add-voucher text-base py-1 px-3 mb-3 rounded-md hover:bg-green-dark bg-green-primary text-white ease transition-all duration-300"
           onClick={() => setShowModal(true)}>
             Tambah Voucher
         </button> 

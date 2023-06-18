@@ -129,8 +129,8 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <ModalEdit onClose={handleOnClose} visible={showModalEdit} row={id} setRefreshSignal={setRefreshSignal}/>
-      <ModalDelete onClose={handleOnClose} visible={showModalDelete} row={id} setRefreshSignal={setRefreshSignal}/>
+      <ModalEdit className="modal-edit" onClose={handleOnClose} visible={showModalEdit} row={id} setRefreshSignal={setRefreshSignal}/>
+      <ModalDelete className="modal-delete" onClose={handleOnClose} visible={showModalDelete} row={id} setRefreshSignal={setRefreshSignal}/>
     </div>
   )
 }

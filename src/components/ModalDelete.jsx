@@ -46,7 +46,7 @@ const ModalDelete = ({ visible, onClose, row, setRefreshSignal, setShowToast }) 
                   Batal
               </button>
               <button
-                className={"py-2 px-4 rounded-md text-white ease transition-all duration-300 " + (isDeleteLoading ? "cursor-wait bg-grey" : "bg-red-primary hover:bg-red-dark")}
+                className={"btn-delete py-2 px-4 rounded-md text-white ease transition-all duration-300 " + (isDeleteLoading ? "cursor-wait bg-grey" : "bg-red-primary hover:bg-red-dark")}
                 type="submit"
                 onClick={() => deleteVoucherHandler(row)}>
                   Hapus

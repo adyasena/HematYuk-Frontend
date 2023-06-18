@@ -79,10 +79,11 @@ const Login = () => {
           <input
             type='text'
             placeholder='Masukkan email anda'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-email h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            
           />
         </div>
         <div className='flex flex-col w-3/5 gap-1 text-start font-roboto'>
@@ -90,14 +91,14 @@ const Login = () => {
           <input
             type='password'
             placeholder='Masukkan password anda'
-            className='h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
+            className='input-password h-10 p-2 border-2 border-black rounded-lg focus:outline-green-dark'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
         <button
-          className='w-32 px-6 py-2 mt-4 font-normal text-white duration-300 transform rounded-md ease bg-green-primary hover:bg-green-dark'
+          className='btn-login w-32 px-6 py-2 mt-4 font-normal text-white duration-300 transform rounded-md ease bg-green-primary hover:bg-green-dark'
           onClick={signInHandler}
         >
           Masuk
