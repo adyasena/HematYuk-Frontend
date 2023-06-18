@@ -11,7 +11,7 @@ describe('Register Test', () => {
     cy.get('.input-conf-pass').should('exist')
     cy.get('.btn-register').should('exist')
 
-    user = 'testppl5'  // ganti angka (testppl{angka}) setiap makan melakukan test kembali atau masukan username yang belum terdaftar
+    user = 'testregister2'  // ganti angka (testregister{angka}) setiap makan melakukan test kembali atau masukan username yang belum terdaftar
 
   })
 

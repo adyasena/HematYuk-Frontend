@@ -1,16 +1,22 @@
 describe('Login Test', () => {
+  let user;
+  let password;
+
   beforeEach(() => {
     cy.visit('https://hemat-yuk.vercel.app/login')
     cy.contains('Selamat datang kembali!').should('exist');
     cy.get('.input-email').should('exist')
     cy.get('.input-password').should('exist')
     cy.get('.btn-login').should('exist')
+
+    user = 'useriai'
+    password = 'useriai'
   })
 
   // test login dengan masukan yang valid
   it('should allow valid login', () => {
-    cy.get('.input-email').type('useriai@gmail.com')
-    cy.get('.input-password').type('useriai')
+    cy.get('.input-email').type(user + '@gmail.com')
+    cy.get('.input-password').type(password)
     cy.get('.btn-login').click()
 
     // untuk memverifikasi test login dengan masukan yang valid berhasil, 
@@ -21,8 +27,8 @@ describe('Login Test', () => {
 
   // test login dengan masukan yang tidak valid
   it('should show error on invalid login', () => {
-    cy.get('.input-email').type('userTidakTerdaftar@gmail.com')
-    cy.get('.input-password').type('userTidakTerdaftar')
+    cy.get('.input-email').type(user + 'TidakTerdaftar@gmail.com')
+    cy.get('.input-password').type(password + 'userTidakTerdaftar')
     cy.get('.btn-login').click()
 
     // untuk memverifikasi test login dengan masukan yang tidak valid berhasil, 
@@ -33,8 +39,8 @@ describe('Login Test', () => {
 
   // test login dengan tidak mengisi kolom email 
   it('should show error on invalid login', () => {
-    // cy.get('.input-email').type('userTidakTerdaftar@gmail.com')
-    cy.get('.input-password').type('userTidakTerdaftar')
+    // cy.get('.input-email').type(user+'@gmail.com')
+    cy.get('.input-password').type(password)
     cy.get('.btn-login').click()
 
     // untuk memverifikasi test login dengan tidak mengisi kolom email berhasil, 
@@ -45,8 +51,8 @@ describe('Login Test', () => {
 
   // test login dengan tidak mengisi kolom password 
   it('should show error on invalid login', () => {
-    cy.get('.input-email').type('userTidakTerdaftar@gmail.com')
-    // cy.get('.input-password').type('userTidakTerdaftar')
+    cy.get('.input-email').type(user + '@gmail.com')
+    // cy.get('.input-password').type(password)
     cy.get('.btn-login').click()
 
     // untuk memverifikasi test login dengan tidak mengisi kolom password berhasil, 
