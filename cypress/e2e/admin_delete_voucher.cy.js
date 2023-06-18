@@ -34,6 +34,7 @@ describe('Admin delete voucher test', () => {
     // untuk memverifikasi test admin dapat menghapus voucher pada dashboar admin berhasil, 
     // dengan verifikasi : dengan memeriksa bahsa voucher dengan code voucher tersebut sudah terhapus atau tidak tertampil pada dashboard
     cy.contains(voucherCode).should('not.exist');
+    cy.contains("Berhasil Menghapus voucher").should('exist');
   })
 
 })
