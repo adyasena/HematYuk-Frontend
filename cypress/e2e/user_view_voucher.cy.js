@@ -3,6 +3,7 @@ describe('User view voucher test', () => {
   let password;
 
   beforeEach(() => {
+    // user dan password untuk user biasa
     user = 'useriai'
     password = 'useriai'
 

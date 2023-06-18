@@ -20,9 +20,9 @@ describe('Login Test', () => {
     cy.get('.btn-login').click()
 
     // untuk memverifikasi test login dengan masukan yang valid berhasil, 
-    // dengan verifikasi : berpindah ke halaman home (/) dan terdapat teks ("Poin Anda")
+    // dengan verifikasi : berpindah ke halaman home (/) dan terdapat teks ("Berhasil Masuk")
     cy.url().should('eq', 'https://hemat-yuk.vercel.app/')
-    cy.contains('Poin Anda').should('exist');
+    cy.contains('Berhasil Masuk').should('exist');
   })
 
   // test login dengan masukan yang tidak valid
