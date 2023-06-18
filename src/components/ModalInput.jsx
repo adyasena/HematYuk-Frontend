@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import { Close } from "../assets";
 import { createFetcher } from "../helpers/fetcher";
+import { useToast } from '@chakra-ui/react';
 
 const ModalInput = ({ visible, onClose, setRefreshSignal }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const toast = useToast();
 
   const nameRef = useRef();
   const companyNameRef = useRef();

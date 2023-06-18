@@ -7,7 +7,8 @@ describe('Admin delete voucher test', () => {
     // user dan password untuk admin
     user = 'adminiai'
     password = 'adminiai'
-    voucherCode = 'VOCTESTING19'
+
+    voucherCode = 'VOCTESTING19' //ganti kode voucher sesuai kode voucher yang ingin dihapus
 
     cy.visit('https://hemat-yuk.vercel.app/login')
     cy.get('.input-email').type(user + '@gmail.com')
@@ -29,7 +30,6 @@ describe('Admin delete voucher test', () => {
 
     cy.contains('button', 'Hapus')
       .click();
-
 
     // untuk memverifikasi test admin dapat menghapus voucher pada dashboar admin berhasil, 
     // dengan verifikasi : dengan memeriksa bahsa voucher dengan code voucher tersebut sudah terhapus atau tidak tertampil pada dashboard

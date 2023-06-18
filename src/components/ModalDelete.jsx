@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Close } from "../assets";
 import { createFetcher } from "../helpers/fetcher";
+import { useToast } from '@chakra-ui/react';
 
 const ModalDelete = ({ visible, onClose, row, setRefreshSignal, setShowToast }) => {
   const [isDeleteLoading, setIsDeleteLoading] = useState(false);
+  const toast = useToast();
 
   const deleteVoucherHandler = async (id) => {
     try {

@@ -9,6 +9,7 @@ describe('Login Test', () => {
     cy.get('.input-password').should('exist')
     cy.get('.btn-login').should('exist')
 
+    // ganti user dan password sesuai yang diinginkan
     user = 'useriai'
     password = 'useriai'
   })
