@@ -42,7 +42,7 @@ const Login = () => {
 
       navigate(user.role === 'USER' ? '/' : '/admin');
     } catch (error) {
-      if (error.response.status === 401) {
+      if (error) {
         toast({
           title: 'Email atau Password Salah',
           status: 'error',
@@ -83,7 +83,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            
+
           />
         </div>
         <div className='flex flex-col w-3/5 gap-1 text-start font-roboto'>
