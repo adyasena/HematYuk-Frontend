@@ -1,17 +1,20 @@
-import { ChakraProvider } from '@chakra-ui/react';
-import { Outlet } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
+import Homepage from './pages/Homepage.jsx';
+import Adminpage from "./pages/Adminpage.jsx";
+import Registerpage from './pages/Registerpage.jsx';
+import Loginpage from "./pages/Loginpage.jsx";
+import Promopage from './pages/Promopage.jsx';
+import './index.css';
 
 function App() {
   return (
-    <ChakraProvider>
-      <div className='bg-white'>
-        <div className=''>
-          <div className=''>
-            <Outlet />
-          </div>
-        </div>
-      </div>
-    </ChakraProvider>
+    <Routes>
+      <Route path='/' element={<Homepage />} />
+      <Route path='/admin' element={<Adminpage />} />
+      <Route path='/register' element={<Registerpage />} />
+      <Route path='/login' element={<Loginpage />} />
+      <Route path='/promo' element={<Promopage />} />
+    </Routes>
   );
 }
 
