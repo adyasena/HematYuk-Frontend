@@ -17,7 +17,7 @@ describe('Admin view voucher test', () => {
   })
 
   // test admin dapat melihat voucher pada dashboar admin
-  it('should should display the voucher (dashboard admin)', () => {
+  it('should display the voucher (dashboard admin)', () => {
 
     // untuk memverifikasi test admin dapat melihat voucher pada dashboar admin berhasil, 
     // dengan verifikasi : berpindah ke halaman admin (/admin) dan terdapat bagian voucher yaitu teks (Dashboard Admin, Promo, Aplikasi, Tipe, Potongan, Minimum Pembelian, Poin, Jumlah, Kode )
