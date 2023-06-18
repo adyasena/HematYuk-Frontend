@@ -17,27 +17,42 @@ const ModalInput = ({ visible, onClose, setRefreshSignal }) => {
   const addVoucherHandler = async () => {
     try {
       setIsLoading(true);
-      
+
       const vouchers = {
         name: nameRef.current.value,
-        companyName: companyNameRef.current.value,  
+        companyName: companyNameRef.current.value,
         type: typeRef.current.value,
         value: valueRef.current.value,
         minTransaction: minTransactionRef.current.value,
         price: priceRef.current.value,
         quantity: quantityRef.current.value,
         voucherCode: voucherCodeRef.current.value.toUpperCase(),
-      }; 
+      };
 
       const fetcher = createFetcher();
 
       const res = await fetcher.post("/vouchers", vouchers);
       if (!res.data.success) throw new Error(res.data.error);
-      
+
+      toast({
+        title: 'Berhasil menambahkan voucher',
+        status: 'success',
+        isClosable: true,
+        position: 'top',
+        duration: 5000,
+      });
+
       setRefreshSignal((s) => !s);
       onClose();
     } catch (error) {
       console.error(error)
+      toast({
+        title: 'Please fill out all field.',
+        status: 'error',
+        isClosable: true,
+        position: 'top',
+        duration: 5000,
+      });
     } finally {
       setIsLoading(false);
     }
@@ -101,14 +116,14 @@ const ModalInput = ({ visible, onClose, setRefreshSignal }) => {
                 className="btn-cancel text-green-primary rounded-md hover:text-blue-primary hover:bg-green-light py-2 px-4 ease transition-all duration-300"
                 type="button"
                 onClick={onClose}>
-                  Batal
+                Batal
               </button>
               <button
                 className={"btn-add py-2 px-4 rounded-md text-white ease transition-all duration-300 " + (isLoading ? "cursor-wait bg-grey" : "hover:bg-green-dark bg-green-primary")}
                 type="submit"
                 disabled={isLoading}
                 onClick={addVoucherHandler}>
-                  Tambah
+                Tambah
               </button>
             </div>
           </form>

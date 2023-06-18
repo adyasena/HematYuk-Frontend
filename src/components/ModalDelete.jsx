@@ -12,6 +12,14 @@ const ModalDelete = ({ visible, onClose, row, setRefreshSignal, setShowToast }) 
       const fetcher = createFetcher();
       await fetcher.delete("/vouchers/" + id);
 
+      toast({
+        title: 'Berhasil Menghapus voucher',
+        status: 'success',
+        isClosable: true,
+        position: 'top',
+        duration: 5000,
+      });
+
       setRefreshSignal((s) => !s);
       onClose();
 
@@ -43,13 +51,13 @@ const ModalDelete = ({ visible, onClose, row, setRefreshSignal, setShowToast }) 
                 className="text-red-primary hover:text-red-dark rounded-md hover:bg-grey py-2 px-4 ease transition-all duration-300"
                 type="button"
                 onClick={onClose}>
-                  Batal
+                Batal
               </button>
               <button
                 className={"btn-delete py-2 px-4 rounded-md text-white ease transition-all duration-300 " + (isDeleteLoading ? "cursor-wait bg-grey" : "bg-red-primary hover:bg-red-dark")}
                 type="submit"
                 onClick={() => deleteVoucherHandler(row)}>
-                  Hapus
+                Hapus
               </button>
             </div>
           </div>
