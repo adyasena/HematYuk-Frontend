@@ -8,7 +8,7 @@ describe('Admin delete voucher test', () => {
     user = 'adminiai'
     password = 'adminiai'
 
-    voucherCode = 'VOCTESTING19' //ganti kode voucher sesuai kode voucher yang ingin dihapus
+    voucherCode = 'ANTARYUK50' //ganti kode voucher sesuai kode voucher yang ingin dihapus
 
     cy.visit('https://hemat-yuk.vercel.app/login')
     cy.get('.input-email').type(user + '@gmail.com')
